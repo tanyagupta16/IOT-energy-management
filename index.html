@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GridWise | Energy Operations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">G</span><span>gridwise</span></a>
+      <div class="site-selector"><span class="site-dot"></span><span>North Campus</span><span class="chevron">⌄</span></div>
+      <nav>
+        <a class="nav-item active" href="#overview"><span>▦</span>Overview</a>
+        <a class="nav-item" href="#devices"><span>◫</span>Devices <b>124</b></a>
+        <a class="nav-item" href="#agents"><span>✦</span>AI agents</a>
+        <a class="nav-item" href="#alerts"><span>◉</span>Alerts <b class="alert-count">3</b></a>
+        <a class="nav-item" href="#reports"><span>▤</span>Reports</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="nav-item" href="#settings"><span>⚙</span>Settings</a>
+        <div class="operator"><div class="avatar">AS</div><div><strong>Arjun Shah</strong><small>Energy manager</small></div><span>⋮</span></div>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div><p class="eyebrow">OPERATIONS / LIVE</p><h1>Good morning, Arjun <span>✦</span></h1><p class="subhead">Here is how your energy system is performing today.</p></div>
+        <div class="header-actions"><button class="icon-button" aria-label="Notifications">♧<i></i></button><button class="range-button">Today <span>⌄</span></button><button class="primary-button" id="runAgents">Run agent scan <span>→</span></button></div>
+      </header>
+
+      <section class="metrics" id="overview">
+        <article class="metric-card"><div class="metric-label"><span class="metric-icon amber">ϟ</span>Current demand</div><div class="metric-value"><strong id="demand">842</strong><span>kW</span></div><div class="metric-trend good">↓ 6.4% <small>vs. yesterday</small></div><svg class="sparkline gold" viewBox="0 0 150 35" preserveAspectRatio="none"><path d="M0 27 L12 25 L24 29 L36 17 L48 22 L60 14 L72 19 L84 9 L96 12 L108 7 L120 17 L132 12 L150 14" /></svg></article>
+        <article class="metric-card"><div class="metric-label"><span class="metric-icon blue">◌</span>Energy today</div><div class="metric-value"><strong>8,426</strong><span>kWh</span></div><div class="metric-trend good">↓ 4.1% <small>vs. yesterday</small></div><svg class="sparkline cyan" viewBox="0 0 150 35" preserveAspectRatio="none"><path d="M0 30 L12 24 L24 25 L36 14 L48 18 L60 13 L72 20 L84 16 L96 8 L108 11 L120 6 L132 14 L150 8" /></svg></article>
+        <article class="metric-card"><div class="metric-label"><span class="metric-icon green">₹</span>Cost today</div><div class="metric-value"><strong>₹62,840</strong></div><div class="metric-trend good">↓ 8.2% <small>vs. forecast</small></div><svg class="sparkline mint" viewBox="0 0 150 35" preserveAspectRatio="none"><path d="M0 24 L12 18 L24 22 L36 16 L48 20 L60 10 L72 13 L84 11 L96 19 L108 12 L120 9 L132 14 L150 6" /></svg></article>
+        <article class="metric-card"><div class="metric-label"><span class="metric-icon purple">☼</span>Solar generation</div><div class="metric-value"><strong>326</strong><span>kW</span></div><div class="metric-trend neutral">38.7% <small>of current load</small></div><svg class="sparkline lavender" viewBox="0 0 150 35" preserveAspectRatio="none"><path d="M0 32 L12 31 L24 27 L36 21 L48 17 L60 11 L72 8 L84 6 L96 10 L108 8 L120 16 L132 21 L150 27" /></svg></article>
+      </section>
+
+      <section class="grid-layout">
+        <article class="panel consumption-panel"><div class="panel-head"><div><h2>Energy consumption</h2><p>Demand profile for today</p></div><div class="segmented"><button class="selected">Day</button><button>Week</button><button>Month</button></div></div><div class="chart-summary"><strong>8,426 <small>kWh</small></strong><span class="good">↓ 4.1%</span></div><div class="chart-area"><div class="y-labels"><span>1.2 MW</span><span>900 kW</span><span>600 kW</span><span>300 kW</span><span>0</span></div><div class="bars" aria-label="Hourly energy consumption chart"><i style="--h:26%"></i><i style="--h:21%"></i><i style="--h:18%"></i><i style="--h:25%"></i><i style="--h:42%"></i><i style="--h:65%"></i><i style="--h:80%"></i><i style="--h:91%"></i><i class="now" style="--h:74%"></i><i style="--h:67%"></i><i style="--h:58%"></i><i style="--h:63%"></i><i style="--h:70%"></i><i style="--h:66%"></i><i style="--h:59%"></i><i style="--h:51%"></i></div><div class="x-labels"><span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span></div></div></article>
+        <article class="panel agent-panel" id="agents"><div class="panel-head"><div><h2>Agent activity</h2><p>Autonomous operations in the last 24h</p></div><button class="text-button">View all →</button></div><div class="agent-score"><div class="score-ring"><strong>94</strong><span>score</span></div><div><strong>System optimized</strong><p>All agents are operating normally.</p></div></div><div class="agent-list"><div><span class="agent-dot teal"></span><p><b>Load forecaster</b><small>Forecast updated 2 min ago</small></p><em>Active</em></div><div><span class="agent-dot violet"></span><p><b>Tariff optimizer</b><small>Shifted 184 kWh to low-cost window</small></p><em>Active</em></div><div><span class="agent-dot yellow"></span><p><b>Anomaly detector</b><small>1 item needs review</small></p><em class="review">Review</em></div></div></article>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel sources-panel"><div class="panel-head"><div><h2>Energy sources</h2><p>Live supply mix</p></div><button class="text-button">Details →</button></div><div class="donut-row"><div class="donut"><div><b>842</b><small>kW total</small></div></div><ul class="legend"><li><span class="legend-dot solar"></span><div>Solar <small>326 kW</small></div><b>38.7%</b></li><li><span class="legend-dot grid"></span><div>Grid <small>418 kW</small></div><b>49.6%</b></li><li><span class="legend-dot battery"></span><div>Battery <small>98 kW</small></div><b>11.6%</b></li></ul></div></article>
+        <article class="panel alerts-panel" id="alerts"><div class="panel-head"><div><h2>Priority alerts</h2><p>Items that need attention</p></div><button class="text-button">See all →</button></div><div class="alert-item critical"><span>!</span><div><b>AHU 3 drawing above baseline</b><p>+18% for 47 minutes · Building B</p></div><button aria-label="More">⋮</button></div><div class="alert-item warning"><span>△</span><div><b>Demand peak predicted at 14:30</b><p>Potential overage of 68 kW</p></div><button aria-label="More">⋮</button></div><div class="alert-item info"><span>i</span><div><b>Battery discharge recommendation</b><p>Save an estimated ₹3,240 today</p></div><button aria-label="More">⋮</button></div></article>
+      </section>
+
+      <section class="recommendation"><div class="recommendation-icon">✦</div><div><p class="eyebrow">AGENT RECOMMENDATION</p><h3>Pre-cool Building B before the afternoon tariff peak</h3><p>Shift 112 kWh of HVAC demand to the 13:00–14:00 window. Estimated saving: <b>₹2,180</b> with no comfort impact.</p></div><div class="rec-actions"><button class="secondary-button" id="dismissRec">Dismiss</button><button class="primary-button" id="applyRec">Apply recommendation <span>→</span></button></div></section>
+    </main>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

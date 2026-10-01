@@ -1,0 +1,6 @@
+const toast = document.getElementById('toast');
+function notify(message) { toast.textContent = message; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3200); }
+document.getElementById('applyRec').addEventListener('click', () => { notify('Pre-cooling scheduled for Building B. Estimated saving: ₹2,180.'); document.getElementById('applyRec').textContent = 'Recommendation applied ✓'; document.getElementById('applyRec').disabled = true; });
+document.getElementById('dismissRec').addEventListener('click', () => { document.querySelector('.recommendation').style.display = 'none'; notify('Recommendation dismissed.'); });
+document.getElementById('runAgents').addEventListener('click', (event) => { const btn = event.currentTarget; btn.textContent = 'Scanning...'; btn.disabled = true; setTimeout(() => { btn.innerHTML = 'Scan complete <span>✓</span>'; notify('Three agents checked 124 devices. One new optimization is ready.'); }, 1200); });
+document.querySelectorAll('.segmented button').forEach(button => button.addEventListener('click', () => { document.querySelector('.segmented .selected').classList.remove('selected'); button.classList.add('selected'); notify(`${button.textContent} view selected.`); }));
